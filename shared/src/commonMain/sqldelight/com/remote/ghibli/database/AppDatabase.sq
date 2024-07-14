@@ -1,0 +1,89 @@
+import kotlin.Boolean;
+import kotlin.String;
+import kotlin.collections.List;
+import kotlin.collections.Set;
+
+
+
+-- Favorite Films
+
+CREATE TABLE favoriteFilms (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    director TEXT NOT NULL,
+    producer TEXT NOT NULL,
+    releaseDate TEXT NOT NULL,
+    runningTime TEXT NOT NULL,
+    rtScore TEXT NOT NULL,
+    peopleUrls TEXT AS List<String> NOT NULL
+);
+
+createFavoriteFilm:
+INSERT OR REPLACE INTO favoriteFilms(id, title, description, director, producer, releaseDate, runningTime, rtScore, peopleUrls)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+readFavoriteFilm:
+SELECT *
+FROM favoriteFilms
+WHERE id = :id;
+
+readFavoriteFilms:
+SELECT *
+FROM favoriteFilms;
+
+deleteFavoriteFilm:
+DELETE FROM favoriteFilms
+WHERE id = :id;
+
+
+
+-- Favorite People
+
+CREATE TABLE favoritePeople (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    filmIds TEXT AS Set<String> NOT NULL
+);
+
+createFavoritePerson:
+INSERT OR REPLACE INTO favoritePeople(id, name, filmIds)
+VALUES(?, ?, ?);
+
+readFavoritePerson:
+SELECT *
+FROM favoritePeople
+WHERE id = :id;
+
+readFavoritePeople:
+SELECT *
+FROM favoritePeople;
+
+deleteFavoritePerson:
+DELETE FROM favoritePeople
+WHERE id = :id;
+
+
+
+-- Selected Filters
+
+CREATE TABLE selectedFilters (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL
+);
+
+createSelectedFilter:
+INSERT OR REPLACE INTO selectedFilters(id, name, type)
+VALUES(?, ?, ?);
+
+readSelectedFilters:
+SELECT *
+FROM selectedFilters;
+
+deleteSelectedFilter:
+DELETE FROM selectedFilters
+WHERE id = :id;
+
+deleteSelectedFilters:
+DELETE FROM selectedFilters;

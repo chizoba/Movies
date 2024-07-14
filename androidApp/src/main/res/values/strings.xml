@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="content_description_favorite">Favorite</string>
+    <string name="content_description_filter">Filter</string>
+    <string name="view_favorite_films">View favorite films</string>
+    <string name="view_films">View films</string>
+    <string name="no_films">Failed to load films.\n\nPlease check your internet connection and try again.</string>
+    <string name="no_favorites">You have no favorites.</string>
+    <string name="reload">Reload</string>
+    <string name="mark_favorite_error">Failed to mark as favorite. Please check your internet connection and try again.</string>
+    <string name="error_unknown">Something went wrong. Please check your internet connection and try again.</string>
+</resources>
